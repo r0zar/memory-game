@@ -36,15 +36,17 @@ var fsm = new StateMachine({
 
 // game and card state transition logic
 var select = (tile) => {
-  if (fsm.is('noCards') && !tile.isFlipped){
-    pick = tile;
-    fsm.pick()
-    tile.isFlipped=!tile.isFlipped
-  }
-  else if (fsm.is('oneCard') && tile != pick && !tile.isFlipped){
-    guess = tile;
-    fsm.guess()
-    tile.isFlipped=!tile.isFlipped
+  if (!tile.isFlipped) {
+    if (fsm.is('noCards')){
+      pick = tile;
+      fsm.pick()
+      tile.isFlipped=!tile.isFlipped
+    }
+    else if (fsm.is('oneCard') && tile != pick){
+      guess = tile;
+      fsm.guess()
+      tile.isFlipped=!tile.isFlipped
+    }
   }
 }
 
