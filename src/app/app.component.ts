@@ -29,7 +29,7 @@ var fsm = new StateMachine({
   ],
   methods: {
     onPick:     () => { console.log('You picked', pick.text) },
-    onGuess:    () => { match() },
+    onGuess:    () => { compare() },
     onResolve:  () => { resolve() }
   }
 });
@@ -49,7 +49,7 @@ var select = (tile) => {
 }
 
 // private functions to be called by state controller
-var match = () => {
+var compare = () => {
   console.log('You guessed, and compared the cards')
   setTimeout(() => {
     if (pick.text != guess.text) {
