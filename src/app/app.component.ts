@@ -41,7 +41,7 @@ var select = (tile) => {
     fsm.pick()
     tile.isFlipped=!tile.isFlipped
   }
-  else if (fsm.is('oneCard') && tile != pick){
+  else if (fsm.is('oneCard') && tile != pick && !tile.isFlipped){
     guess = tile;
     fsm.guess()
     tile.isFlipped=!tile.isFlipped
